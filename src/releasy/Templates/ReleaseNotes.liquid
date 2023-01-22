@@ -1,0 +1,7 @@
+# Releasenotes v{{ Version }}
+{% for prefix in Prefixes %}
+## {{ prefix.Name }}
+{% for entry in prefix.Entries %}
+- {% if entry.IssueId != "" %}[#{{ entry.IssueId }}]({{ PermaLink}}{{ entry.IssueId }}): {% endif %}{{ entry.Message }}{% if entry.Tag != "" %} ({{ entry.Tag }}){% endif %}
+{%- endfor %}
+{% endfor -%}

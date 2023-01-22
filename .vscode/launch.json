@@ -1,0 +1,67 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "releasy-add-changelog",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-releasy",
+      "program": "${workspaceFolder}/src/releasy/bin/Debug/net7.0/tomware.Releasy.dll",
+      "args": [
+        "add-changelog",
+        "-i",
+        "MyIssueId",
+        "-p",
+        "fix",
+        "-t",
+        "audit",
+        "-m",
+        "my super release note message"
+      ],
+      "cwd": "${workspaceFolder}/src/releasy",
+      "stopAtEntry": false
+    },
+    {
+      "name": "releasy-create-releasenotes",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-releasy",
+      "program": "${workspaceFolder}/src/releasy/bin/Debug/net7.0/tomware.Releasy.dll",
+      "args": [
+        "create-releasenotes",
+        "-v",
+        "1.2.3",
+        "-p",
+        "https://dev.azure.com/buhlergroup/JointForces/_workitems/edit/",
+        "-i",
+        "../samples",
+        "-o",
+        "../samples",
+        "-a",
+        "archive"
+      ],
+      "cwd": "${workspaceFolder}/src/releasy",
+      "stopAtEntry": false
+    },
+    {
+      "name": "releasy-update-changelog",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-releasy",
+      "program": "${workspaceFolder}/src/releasy/bin/Debug/net7.0/tomware.Releasy.dll",
+      "args": [
+        "update-changelog",
+        "-v",
+        "1.0.0",
+        "-p",
+        "https://dev.azure.com/buhlergroup/JointForces/_workitems/edit/",
+        "-i",
+        "../samples",
+        "-f",
+        "../samples/CHANGELOG.md"
+      ],
+      "cwd": "${workspaceFolder}/src/releasy",
+      "stopAtEntry": false
+    }
+  ]
+}
