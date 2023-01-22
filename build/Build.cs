@@ -11,16 +11,10 @@ namespace targets;
 
 internal static class Program
 {
-  // Add name of the solution here:
   private const string solution = "releasy.sln";
-
-  // Fill list of packaple projects here:
   private static IList<string> packableProjects = new List<string>{
     "releasy"
   };
-
-  // Adjust your nuget source here:
-  private const string nugetSource = "https://api.nuget.org/v3/index.json";
 
   static async Task Main(string[] args)
   {
@@ -113,7 +107,6 @@ internal static class Program
     const string artifactsDirectory = "./artifacts";
     const string CleanArtifacts = "clean-artifacts";
     const string Pack = "pack";
-    const string Deploy = "deploy";
 
     Target(CleanArtifacts, () =>
     {
@@ -142,22 +135,6 @@ internal static class Program
         {
           Run("dotnet", $"pack {project} -c Release -p:PackageVersion={version} -p:Version={version} -o {directory} --no-build --nologo");
         }
-      }
-    });
-
-    Target(Deploy, DependsOn(RestoreTools, Test, Pack), () =>
-    {
-      if (string.IsNullOrWhiteSpace(key))
-      {
-        throw new Bullseye.TargetFailedException("Key for deploying to NuGet is missing!");
-      }
-
-      // push packages
-      var directory = Directory.CreateDirectory(artifactsDirectory).FullName;
-      var packages = GetFiles(directory, $"*.nupkg");
-      foreach (var package in packages)
-      {
-        Run("dotnet", $"nuget push {package} -s {nugetSource} -k {key}");
       }
     });
     #endregion
