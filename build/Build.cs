@@ -57,7 +57,7 @@ internal static class Program
 
     Target(AddChangelog, () =>
     {
-      Run("dotnet", "tool run releasy add-changelog", "changelogs");
+      Run("dotnet", "run --project ../src/releasy/releasy.csproj -- add-changelog", "changelogs");
     });
     #endregion
 
