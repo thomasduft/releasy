@@ -82,7 +82,7 @@ internal static class Program
       Run("dotnet", $"test {solution} -c Release --no-build --nologo");
     });
 
-    Target(Release, DependsOn(RestoreTools, Test), () =>
+    Target(Release, DependsOn(Test), () =>
     {
       if (string.IsNullOrWhiteSpace(version))
       {
@@ -90,7 +90,7 @@ internal static class Program
       }
 
       // updating the changelog
-      Run("dotnet", $"tool run releasy update-changelog -v {version} -p https://github.com/thomasduft/microwf/issues/");
+      Run("dotnet", $"run --project src/releasy/releasy.csproj -- update-changelog -v {version} -p https://github.com/thomasduft/releasy/issues/");
 
       // committing the changelog changes
       Run("git", $"commit -am \"Committing changelog changes for v'{version}'\"");
