@@ -17,6 +17,9 @@
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <FileVersion>$(Version)</FileVersion>
 
+    <RepositoryUrl>https://github.com/thomasduft/releasy</RepositoryUrl>
+    <PackageTags>changelog release-notes</PackageTags>
+    <PackageProjectUrl>https://github.com/thomasduft/releasy</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <PackageIcon>icon.png</PackageIcon>
