@@ -58,7 +58,7 @@
         "-i",
         "../../samples",
         "-f",
-        "../../samples/MY-CHANGELOG.md"
+        "../../samples/CHANGELOG.md"
       ],
       "cwd": "${workspaceFolder}/src/releasy",
       "stopAtEntry": false
