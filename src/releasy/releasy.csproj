@@ -36,6 +36,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Templates\ChangelogEntries.liquid" />
+    <EmbeddedResource Include="Templates\ChangelogTemplate.liquid" />
     <EmbeddedResource Include="Templates\ReleaseNotes.liquid" />
   </ItemGroup>
 

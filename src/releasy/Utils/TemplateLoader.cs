@@ -5,6 +5,7 @@ namespace tomware.Releasy;
 public static class Templates
 {
   public const string ChangelogEntries = "ChangelogEntries";
+  public const string ChangelogTemplate = "ChangelogTemplate";
   public const string ReleaseNotes = "ReleaseNotes";
 }
 

@@ -1,6 +1,8 @@
 using System.Globalization;
 using System.Text.Json;
+
 using Fluid;
+
 using tomware.Releasy;
 
 internal sealed class ChangelogUpdater
@@ -28,7 +30,8 @@ internal sealed class ChangelogUpdater
         _changelogEntries.Add(entry);
     }
 
-    // 2. Insert in Changelog.md
+    CheckChanglogExistsIfNotScaffoldOne(_changelogUpdaterParam.ChangelogFileName);
+
     InsertInChangelog(
       _changelogUpdaterParam.ChangelogFileName,
       new
@@ -60,22 +63,16 @@ internal sealed class ChangelogUpdater
     return files;
   }
 
-  private static IEnumerable<Prefix> BuildPrefixes(IEnumerable<ChangelogEntry> releaseNotes)
+  private static void CheckChanglogExistsIfNotScaffoldOne(string changelogFileName)
   {
-    var prefixes = new List<Prefix>();
+    if (File.Exists(changelogFileName)) return;
 
-    var prefixGroups = releaseNotes.Select(r => r.Prefix).Distinct();
-    foreach (var prefix in prefixGroups)
-    {
-      var notes = releaseNotes.Where(r => r.Prefix == prefix).OrderBy(r => r.CreatedAt);
+    var content = TemplateLoader.GetResource(Templates.ChangelogTemplate);
 
-      prefixes.Add(new Prefix(prefix, notes));
-    }
-
-    return prefixes.OrderBy(p => p.Name);
+    File.WriteAllText(changelogFileName, content);
   }
 
-  public static void InsertInChangelog(string changelogFileName, object model)
+  private static void InsertInChangelog(string changelogFileName, object model)
   {
     var source = TemplateLoader.GetResource(Templates.ChangelogEntries);
     var template = new FluidParser().Parse(source);
@@ -92,6 +89,21 @@ internal sealed class ChangelogUpdater
     lines.Insert(1, content);
 
     File.WriteAllLines(changelogFileName, lines);
+  }
+
+  private static IEnumerable<Prefix> BuildPrefixes(IEnumerable<ChangelogEntry> releaseNotes)
+  {
+    var prefixes = new List<Prefix>();
+
+    var prefixGroups = releaseNotes.Select(r => r.Prefix).Distinct();
+    foreach (var prefix in prefixGroups)
+    {
+      var notes = releaseNotes.Where(r => r.Prefix == prefix).OrderBy(r => r.CreatedAt);
+
+      prefixes.Add(new Prefix(prefix, notes));
+    }
+
+    return prefixes.OrderBy(p => p.Name);
   }
 
   private sealed record Prefix

@@ -1,0 +1,9 @@
+{
+  "Id": "6d4d4c00-48dc-4187-9205-3dc5ff3aff07",
+  "IssueId": "MyIssueId",
+  "Prefix": "Fix",
+  "Tag": "Audit",
+  "Message": "my super release note message",
+  "CreatedAt": "2023-02-08T10:54:56.0830132+01:00",
+  "CreatedBy": "tom"
+}

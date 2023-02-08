@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "releasy-add-changelog",
+      "name": "add-changelog",
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "build-releasy",
@@ -18,11 +18,11 @@
         "-m",
         "my super release note message"
       ],
-      "cwd": "${workspaceFolder}/src/releasy",
+      "cwd": "${workspaceFolder}/samples",
       "stopAtEntry": false
     },
     {
-      "name": "releasy-create-releasenotes",
+      "name": "create-releasenotes",
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "build-releasy",
@@ -34,9 +34,9 @@
         "-p",
         "https://dev.azure.com/buhlergroup/JointForces/_workitems/edit/",
         "-i",
-        "../samples",
+        "../../samples",
         "-o",
-        "../samples",
+        "../../samples",
         "-a",
         "archive"
       ],
@@ -44,7 +44,7 @@
       "stopAtEntry": false
     },
     {
-      "name": "releasy-update-changelog",
+      "name": "update-changelog",
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "build-releasy",
@@ -56,9 +56,9 @@
         "-p",
         "https://dev.azure.com/buhlergroup/JointForces/_workitems/edit/",
         "-i",
-        "../samples",
+        "../../samples",
         "-f",
-        "../samples/CHANGELOG.md"
+        "../../samples/MY-CHANGELOG.md"
       ],
       "cwd": "${workspaceFolder}/src/releasy",
       "stopAtEntry": false
