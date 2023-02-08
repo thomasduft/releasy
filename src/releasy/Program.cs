@@ -15,7 +15,7 @@ app.HelpOption(HelpOption);
 
 app.Command("add-changelog", (command) =>
 {
-  command.Description = "Creates a new changelog entry (i.e. releasy add-changelog -i \"my-issue-id\" -p \"feature\" -t \"audit\" -m \"My super duper text\"";
+  command.Description = "Creates a new changelog entry (i.e. releasy add-changelog -i \"my-issue-id\" -p \"feature\" -t \"audit\" -m \"My super duper text\")";
   var issueIdOption = command.Option("-i|--issue-id", "IssueId to link to your ticketing system", CommandOptionType.SingleValue);
   var prefixOption = command.Option("-p|--prefix", "Prefix like added, changed, deprecated, removed, fixed, security", CommandOptionType.SingleValue);
   var tagOption = command.Option("-t|--tag", "Tag that specifies the changelog entry. Helpful for grouping and such things.", CommandOptionType.SingleValue);
@@ -47,13 +47,6 @@ app.Command("add-changelog", (command) =>
 
     return 0;
   });
-});
-
-app.OnExecute(() =>
-{
-  app.ShowHelp();
-
-  return 0;
 });
 
 app.Command("create-releasenotes", (command) =>
