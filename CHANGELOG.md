@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.6.0] - 2023-03-15
+
+### Added
+
+- added automatically scaffolding of a CHANGELOG file if no such is present
+
+### Fix
+
+- [#MyIssueId](https://github.com/thomasduft/releasy/issues/MyIssueId): my super release note message (Audit)
+- [#MyIssueId](https://github.com/thomasduft/releasy/issues/MyIssueId): my super release note message (Audit)
+
+
 ## [0.5.1] - 2023-01-22
 
 ### Added

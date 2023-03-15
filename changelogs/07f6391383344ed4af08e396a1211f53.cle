@@ -1,9 +1,0 @@
-{
-  "Id": "07f63913-8334-4ed4-af08-e396a1211f53",
-  "IssueId": "",
-  "Prefix": "Added",
-  "Tag": "",
-  "Message": "added automatically scaffolding of a CHANGELOG file if no such is present",
-  "CreatedAt": "2023-02-08T11:05:00.2720223+01:00",
-  "CreatedBy": "tom"
-}
