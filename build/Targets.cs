@@ -93,7 +93,7 @@ internal static class Program
       Run("dotnet", $"run --project src/releasy/releasy.csproj -- update-changelog -v {version} -p https://github.com/thomasduft/releasy/issues/");
 
       // committing the changelog changes
-      Run("git", $"commit -am \"Committing changelog changes for v'{version}'\"");
+      Run("git", $"commit -am \"Committing changelog changes for v{version}\"");
 
       // applying the tag
       Run("git", $"tag -a v{version} -m \"version '{version}'\"");
