@@ -1,3 +1,5 @@
+![build](https://github.com/thomasduft/releasy/actions/workflows/build.yml/badge.svg) [![NuGet](https://img.shields.io/nuget/vpre/tomware.Releasy.svg)](https://www.nuget.org/packages/tomware.Releasy)
+
 # releasy
 
 releasy - a simple release notes tool.
