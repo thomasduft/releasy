@@ -12,7 +12,7 @@ namespace targets;
 internal static class Program
 {
   private const string solution = "releasy.sln";
-  private static IList<string> packableProjects = new List<string>{
+  private static readonly IList<string> packableProjects = new List<string>{
     "releasy"
   };
 

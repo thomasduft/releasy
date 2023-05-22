@@ -17,7 +17,7 @@ public static class TemplateLoader
     var resourcePath = assembly.ManifestModule.Name.Replace(".dll", string.Empty);
     var resourceName = $"{resourcePath}.Templates.{template}.liquid";
 
-    using (var stream = assembly.GetManifestResourceStream(resourceName)!)
+    using (var stream = assembly.GetManifestResourceStream(resourceName))
     using (var reader = new StreamReader(stream!))
     {
       return reader.ReadToEnd();

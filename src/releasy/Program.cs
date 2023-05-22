@@ -25,24 +25,25 @@ app.Command("add-changelog", (command) =>
   command.OnExecute(() =>
   {
     var issueId = issueIdOption.HasValue()
-           ? issueIdOption.Value()!
-           : ReadInput("Enter your IssueId");
+      ? issueIdOption.Value() ?? throw new InvalidOperationException(nameof(issueIdOption.Value))
+      : ReadInput("Enter your IssueId");
     var prefix = prefixOption.HasValue()
-          ? prefixOption.Value()!
-          : ReadInput("Enter prefix (i.e. added, changed, deprecated, removed, fixed, security)");
+      ? prefixOption.Value() ?? throw new InvalidOperationException(nameof(prefixOption.Value))
+      : ReadInput("Enter prefix (i.e. added, changed, deprecated, removed, fixed, security)");
     var tag = tagOption.HasValue()
-          ? tagOption.Value()!
-          : ReadInput("Enter tag");
+      ? tagOption.Value() ?? throw new InvalidOperationException(nameof(tagOption.Value))
+      : ReadInput("Enter tag");
     var message = messageOption.HasValue()
-          ? messageOption.Value()!
-          : ReadInput("Enter message");
+      ? messageOption.Value() ?? throw new InvalidOperationException(nameof(messageOption.Value))
+      : ReadInput("Enter message");
 
-    var creator = new ChangelogCreator(new ChangelogParam(
-          issueId,
-          prefix,
-          tag,
-          message
-        ));
+    var creator = new ChangelogCreator(
+      new ChangelogParam(
+        issueId,
+        prefix,
+        tag,
+        message
+      ));
     creator.Create();
 
     return 0;
@@ -62,28 +63,29 @@ app.Command("create-releasenotes", (command) =>
   command.OnExecute(() =>
   {
     var version = versionOption.HasValue()
-          ? versionOption.Value()!
-          : ReadInput("Enter release version");
+      ? versionOption.Value() ?? throw new InvalidOperationException(nameof(versionOption.Value))
+      : ReadInput("Enter release version");
     var permaLink = permaLinkOption.HasValue()
-          ? permaLinkOption.Value()!
-          : ReadInput("Enter the parma-link template that points to the VCS issue id");
+      ? permaLinkOption.Value() ?? throw new InvalidOperationException(nameof(permaLinkOption.Value))
+      : ReadInput("Enter the perma-link template that points to the VCS issue id");
     var inputDirectory = inputDirectoryOption.HasValue()
-          ? inputDirectoryOption.Value()!
-          : ".";
+      ? inputDirectoryOption.Value() ?? throw new InvalidOperationException(nameof(inputDirectoryOption.Value))
+      : ".";
     var outputDirectory = outputDirectoryOption.HasValue()
-          ? outputDirectoryOption.Value()!
-          : ".";
+      ? outputDirectoryOption.Value() ?? throw new InvalidOperationException(nameof(outputDirectoryOption.Value))
+      : ".";
     var archiveDirectory = archiveDirectoryOption.HasValue()
-          ? archiveDirectoryOption.Value()!
-          : null; // => dump them!
+      ? archiveDirectoryOption.Value() ?? throw new InvalidOperationException(nameof(archiveDirectoryOption.Value))
+      : null; // => dump them!
 
-    var releaseNotes = new ReleaseNotes(new ReleaseNotesParam(
-          version,
-          permaLink,
-          inputDirectory,
-          outputDirectory,
-          archiveDirectory
-        ));
+    var releaseNotes = new ReleaseNotes(
+      new ReleaseNotesParam(
+        version,
+        permaLink,
+        inputDirectory,
+        outputDirectory,
+        archiveDirectory
+      ));
     releaseNotes.Create();
 
     return 0;
@@ -103,17 +105,17 @@ app.Command("update-changelog", (command) =>
   command.OnExecute(() =>
   {
     var version = versionOption.HasValue()
-          ? versionOption.Value()!
-          : ReadInput("Enter release version");
+      ? versionOption.Value() ?? throw new InvalidOperationException(nameof(versionOption.Value))
+      : ReadInput("Enter release version");
     var permaLink = permaLinkOption.HasValue()
-          ? permaLinkOption.Value()!
-          : ReadInput("Enter the parma-link template that points to the VCS issue id");
+      ? permaLinkOption.Value() ?? throw new InvalidOperationException(nameof(permaLinkOption.Value))
+      : ReadInput("Enter the perma-link template that points to the VCS issue id");
     var inputDirectory = inputDirectoryOption.HasValue()
-          ? inputDirectoryOption.Value()!
-          : ".";
+      ? inputDirectoryOption.Value() ?? throw new InvalidOperationException(nameof(inputDirectoryOption.Value))
+      : ".";
     var changelogFileName = changelogFileNameOption.HasValue()
-          ? changelogFileNameOption.Value()!
-          : "CHANGELOG.md";
+      ? changelogFileNameOption.Value() ?? throw new InvalidOperationException(nameof(changelogFileNameOption.Value))
+      : "CHANGELOG.md";
 
     var changelogUpdater = new ChangelogUpdater(new ChangelogUpdaterParam(
           version,
