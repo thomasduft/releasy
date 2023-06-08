@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.0] - 2023-06-08
+
+### Changed
+
+- Changed build for custom release version command option (Build)
+
+
 ## [0.6.0] - 2023-03-15
 
 ### Added
