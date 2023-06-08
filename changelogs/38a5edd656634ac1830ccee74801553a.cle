@@ -1,0 +1,9 @@
+{
+  "Id": "38a5edd6-5663-4ac1-830c-cee74801553a",
+  "IssueId": "",
+  "Prefix": "Changed",
+  "Tag": "Build",
+  "Message": "Changed build for custom release version command option",
+  "CreatedAt": "2023-06-08T08:42:14.0399449+02:00",
+  "CreatedBy": "U23567"
+}
