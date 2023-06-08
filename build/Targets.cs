@@ -10,7 +10,6 @@ IList<string> packableProjects = new List<string>{
   "releasy"
 };
 
-// see https://github.com/adamralph/bullseye/blob/main/BullseyeSmokeTester.McMaster/Program.cs
 var app = new CommandLineApplication
 {
   UsePagerForHelpText = false,
