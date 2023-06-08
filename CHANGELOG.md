@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.0] - 2023-06-08
+
+### Removed
+
+- Removed UpperCaseFirstLetter strategy for tag when creating a change-log entry
+
+
 ## [0.7.0] - 2023-06-08
 
 ### Changed

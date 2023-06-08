@@ -1,9 +1,0 @@
-{
-  "Id": "580680a5-f358-4839-b2d1-eb76dca0d321",
-  "IssueId": "",
-  "Prefix": "Removed",
-  "Tag": "",
-  "Message": "Removed UpperCaseFirstLetter strategy for tag when creating a change-log entry",
-  "CreatedAt": "2023-06-08T08:51:33.1320994+02:00",
-  "CreatedBy": "U23567"
-}
