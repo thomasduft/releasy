@@ -21,7 +21,7 @@ internal sealed class ChangelogEntry
     {
       IssueId = issueId,
       Prefix = prefix.UpperCaseFirstLetter(),
-      Tag = tag.UpperCaseFirstLetter(),
+      Tag = tag,
       Message = message
     };
   }
