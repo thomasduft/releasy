@@ -5,7 +5,7 @@ using McMaster.Extensions.CommandLineUtils;
 using static Bullseye.Targets;
 using static SimpleExec.Command;
 
-const string solution = "releasy.sln";
+const string Solution = "releasy.sln";
 IList<string> packableProjects = new List<string>{
   "releasy"
 };
@@ -58,17 +58,17 @@ app.OnExecuteAsync(async _ =>
 
   Target(Clean, () =>
   {
-    Run("dotnet", $"clean {solution} -c Release -v m --nologo");
+    Run("dotnet", $"clean {Solution} -c Release -v m --nologo");
   });
 
   Target(Build, DependsOn(Clean), () =>
   {
-    Run("dotnet", $"build {solution} -c Release --nologo");
+    Run("dotnet", $"build {Solution} -c Release --nologo");
   });
 
   Target(Test, DependsOn(Build), () =>
   {
-    Run("dotnet", $"test {solution} -c Release --no-build --nologo");
+    Run("dotnet", $"test {Solution} -c Release --no-build --nologo");
   });
 
   Target(Release, DependsOn(Test), () =>
@@ -96,15 +96,15 @@ app.OnExecuteAsync(async _ =>
   #endregion
 
   #region Deployment targets
-  const string artifactsDirectory = "./artifacts";
+  const string ArtifactsDirectory = "./artifacts";
   const string CleanArtifacts = "clean-artifacts";
   const string Pack = "pack";
 
   Target(CleanArtifacts, () =>
   {
-    if (Directory.Exists(artifactsDirectory))
+    if (Directory.Exists(ArtifactsDirectory))
     {
-      Directory.Delete(artifactsDirectory, true);
+      Directory.Delete(ArtifactsDirectory, true);
     }
   });
 
@@ -119,7 +119,7 @@ app.OnExecuteAsync(async _ =>
     Console.WriteLine($"Pack for version: '{version}'");
 
     // pack packages
-    var directory = Directory.CreateDirectory(artifactsDirectory).FullName;
+    var directory = Directory.CreateDirectory(ArtifactsDirectory).FullName;
     var projects = GetFiles("src", $"*.csproj");
     foreach (var project in projects)
     {
@@ -145,7 +145,7 @@ static IEnumerable<string> GetFiles(
   string filter
 )
 {
-  List<string> files = new List<string>();
+  List<string> files = new();
 
   files.AddRange(Directory.GetFiles(
     directoryToScan,
