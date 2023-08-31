@@ -31,7 +31,7 @@
 
   <ItemGroup>
     <PackageReference Include="Fluid.Core" Version="2.4.0" />
-    <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="4.0.2" />
+    <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="4.1.0" />
   </ItemGroup>
 
   <ItemGroup>
