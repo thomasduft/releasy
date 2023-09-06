@@ -1,9 +1,0 @@
-{
-  "Id": "50ee04bd-854b-4737-a0cf-867a12950d9d",
-  "IssueId": "",
-  "Prefix": "Fixed",
-  "Tag": "",
-  "Message": "\u0016Fixed unnecessary line breaks in ChangelogUpdater",
-  "CreatedAt": "2023-09-06T08:34:10.4737845+00:00",
-  "CreatedBy": "vscode"
-}
