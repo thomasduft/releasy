@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "add-changelog",
+      "name": "add-changelog-for-fix",
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "build-releasy",
@@ -16,9 +16,49 @@
         "-t",
         "audit",
         "-m",
-        "my super release note message"
+        "my super release note message for a fix"
       ],
       "cwd": "${workspaceFolder}/samples",
+      "stopAtEntry": false
+    },
+    {
+      "name": "add-changelog-for-change",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-releasy",
+      "program": "${workspaceFolder}/src/releasy/bin/Debug/net7.0/tomware.Releasy.dll",
+      "args": [
+        "add-changelog",
+        "-i",
+        "MyIssueId",
+        "-p",
+        "change",
+        "-t",
+        "audit",
+        "-m",
+        "my super release note message for a change"
+      ],
+      "cwd": "${workspaceFolder}/samples",
+      "stopAtEntry": false
+    },
+    {
+      "name": "update-changelog",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-releasy",
+      "program": "${workspaceFolder}/src/releasy/bin/Debug/net7.0/tomware.Releasy.dll",
+      "args": [
+        "update-changelog",
+        "-v",
+        "1.0.0",
+        "-p",
+        "https://github.com/thomasduft/releasy/issues/",
+        "-i",
+        "../../samples",
+        "-f",
+        "../../samples/CHANGELOG.md"
+      ],
+      "cwd": "${workspaceFolder}/src/releasy",
       "stopAtEntry": false
     },
     {
@@ -39,26 +79,6 @@
         "../../samples",
         "-a",
         "archive"
-      ],
-      "cwd": "${workspaceFolder}/src/releasy",
-      "stopAtEntry": false
-    },
-    {
-      "name": "update-changelog",
-      "type": "coreclr",
-      "request": "launch",
-      "preLaunchTask": "build-releasy",
-      "program": "${workspaceFolder}/src/releasy/bin/Debug/net7.0/tomware.Releasy.dll",
-      "args": [
-        "update-changelog",
-        "-v",
-        "1.0.0",
-        "-p",
-        "https://github.com/thomasduft/releasy/issues/",
-        "-i",
-        "../../samples",
-        "-f",
-        "../../samples/CHANGELOG.md"
       ],
       "cwd": "${workspaceFolder}/src/releasy",
       "stopAtEntry": false

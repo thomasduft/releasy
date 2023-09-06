@@ -86,6 +86,7 @@ internal sealed class ChangelogUpdater
     var lines = File
       .ReadAllLines(changelogFileName)
       .ToList();
+    lines.RemoveAt(1);
     lines.Insert(1, content);
 
     File.WriteAllLines(changelogFileName, lines);
