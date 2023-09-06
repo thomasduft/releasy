@@ -4,7 +4,7 @@
 
 ### Fixed
 
-- Fixed unnecessary line breaks in ChangelogUpdater
+- Fixed unnecessary line breaks in ChangelogUpdater
 
 ## [0.8.0] - 2023-06-08
 
