@@ -1,9 +1,0 @@
-{
-  "Id": "e98b86b7-b7f6-42c6-8f54-e0ffb8114c5c",
-  "IssueId": "",
-  "Prefix": "Added",
-  "Tag": "",
-  "Message": "Added support for net8.0",
-  "CreatedAt": "2023-11-22T08:16:32.0993906+00:00",
-  "CreatedBy": "vscode"
-}
