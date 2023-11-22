@@ -3,7 +3,7 @@
   "IssueId": "",
   "Prefix": "Added",
   "Tag": "",
-  "Message": "Added net8.0 support",
+  "Message": "Added support for net8.0",
   "CreatedAt": "2023-11-22T08:16:32.0993906+00:00",
   "CreatedBy": "vscode"
 }
