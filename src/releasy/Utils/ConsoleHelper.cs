@@ -48,6 +48,21 @@ public static class ConsoleHelper
       : string.Empty;
   }
 
+  public static string[] ReadMultilineInput(string prompt)
+  {
+    WriteYellow($"{prompt}: " + Environment.NewLine);
+
+    var lines = new List<string>();
+
+    string? line;
+    while (!string.IsNullOrWhiteSpace(line = Console.ReadLine()))
+    {
+      lines.Add(line + Environment.NewLine);
+    }
+
+    return lines.ToArray();
+  }
+
   public static string ReadPassword()
   {
     WriteYellow("Please enter a password: ");

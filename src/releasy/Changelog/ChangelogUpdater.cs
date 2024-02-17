@@ -3,7 +3,7 @@ using System.Text.Json;
 
 using Fluid;
 
-using tomware.Releasy;
+namespace tomware.Releasy.Changelog;
 
 internal sealed class ChangelogUpdater
 {

@@ -1,0 +1,12 @@
+TODO:
+
+
+----------------------------------------------------------------------------------------------------
+Links:
+
+Release Notes
+- how to write release Notes
+  - https://canny.io/blog/release-notes/
+  - https://www.appcues.com/blog/release-notes-examples
+- sample templates
+  - https://gist.github.com/andreasonny83/24c733ae50cadf00fcf83bc8beaa8e6a

@@ -1,4 +1,4 @@
-namespace tomware.Releasy;
+namespace tomware.Releasy.Releasenotes;
 
 internal sealed record ReleaseNotesParam
 (

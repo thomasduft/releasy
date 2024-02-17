@@ -1,15 +1,17 @@
 using System.Text.Json;
 
-namespace tomware.Releasy;
+namespace tomware.Releasy.Changelog;
 
 internal sealed class ChangelogCreator
 {
   private readonly ChangelogParam _changelogParam;
+  private readonly JsonSerializerOptions _jsonSerializerOptions = new()
+  {
+    PropertyNameCaseInsensitive = true,
+    WriteIndented = true
+  };
 
-  public ChangelogCreator
-  (
-    ChangelogParam changelogParam
-  )
+  public ChangelogCreator(ChangelogParam changelogParam)
   {
     _changelogParam = changelogParam;
   }
@@ -23,17 +25,11 @@ internal sealed class ChangelogCreator
       _changelogParam.Message
     );
 
-    var content = JsonSerializer.Serialize(
-      changelog,
-      new JsonSerializerOptions
-      {
-        PropertyNameCaseInsensitive = true,
-        WriteIndented = true
-      });
-
     // Guid ToString(...) formats (https://learn.microsoft.com/en-us/dotnet/api/system.guid.tostring?view=net-6.0)
     var fileName = changelog.Id.ToString("N");
     var path = $"{fileName}.{Constants.ChangelogEntryFileExtension}";
+
+    var content = JsonSerializer.Serialize(changelog, _jsonSerializerOptions);
     File.WriteAllText(path, content);
   }
 }

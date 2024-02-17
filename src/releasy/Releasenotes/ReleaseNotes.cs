@@ -2,18 +2,16 @@ using System.Text.Json;
 
 using Fluid;
 
-namespace tomware.Releasy;
+namespace tomware.Releasy.Releasenotes;
 
 internal sealed class ReleaseNotes
 {
-  private readonly List<ChangelogEntry> _releaseNotes;
+  private readonly List<ReleaseNoteEntry> _releaseNotes;
   private readonly ReleaseNotesParam _releaseNotesParam;
 
-  public ReleaseNotes(
-    ReleaseNotesParam releaseNotesParam
-  )
+  public ReleaseNotes(ReleaseNotesParam releaseNotesParam)
   {
-    _releaseNotes = new List<ChangelogEntry>();
+    _releaseNotes = [];
     _releaseNotesParam = releaseNotesParam;
   }
 
@@ -24,7 +22,7 @@ internal sealed class ReleaseNotes
     foreach (var file in files)
     {
       var content = File.ReadAllText(file);
-      var note = JsonSerializer.Deserialize<ChangelogEntry>(content);
+      var note = JsonSerializer.Deserialize<ReleaseNoteEntry>(content);
       if (note != null)
         _releaseNotes.Add(note);
     }
@@ -64,27 +62,29 @@ internal sealed class ReleaseNotes
     }
   }
 
-  private static IEnumerable<string> GetFiles(string inputDirectory)
+  private static List<string> GetFiles(string inputDirectory)
   {
     var files = new List<string>();
 
     files.AddRange(Directory.GetFiles(
       inputDirectory,
-      $"*.{Constants.ChangelogEntryFileExtension}",
+      $"*.{Constants.ReleaseNoteEntryFileExtension}",
       SearchOption.AllDirectories
     ));
 
     return files;
   }
 
-  private static IEnumerable<Prefix> BuildPrefixes(IEnumerable<ChangelogEntry> releaseNotes)
+  private static IEnumerable<Prefix> BuildPrefixes(IEnumerable<ReleaseNoteEntry> releaseNotes)
   {
     var prefixes = new List<Prefix>();
 
     var prefixGroups = releaseNotes.Select(r => r.Prefix).Distinct();
     foreach (var prefix in prefixGroups)
     {
-      var notes = releaseNotes.Where(r => r.Prefix == prefix).OrderBy(r => r.CreatedAt);
+      var notes = releaseNotes
+        .Where(r => r.Prefix == prefix)
+        .OrderBy(r => r.CreatedAt);
 
       prefixes.Add(new Prefix(prefix, notes));
     }
@@ -92,14 +92,14 @@ internal sealed class ReleaseNotes
     return prefixes.OrderBy(p => p.Name);
   }
 
-  public static void SaveFile(string output, object model)
+  private static void SaveFile(string output, object model)
   {
     var source = TemplateLoader.GetResource(Templates.ReleaseNotes);
     var template = new FluidParser().Parse(source);
 
     var options = new TemplateOptions();
     options.MemberAccessStrategy.Register<Prefix>();
-    options.MemberAccessStrategy.Register<ChangelogEntry>();
+    options.MemberAccessStrategy.Register<ReleaseNoteEntry>();
 
     var content = template.Render(new TemplateContext(model, options));
     File.WriteAllText(output, content);
@@ -108,6 +108,6 @@ internal sealed class ReleaseNotes
   private sealed record Prefix
   (
     string Name,
-    IEnumerable<ChangelogEntry> Entries
+    IEnumerable<ReleaseNoteEntry> Entries
   );
 }

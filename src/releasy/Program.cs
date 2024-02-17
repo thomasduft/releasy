@@ -1,6 +1,7 @@
 using McMaster.Extensions.CommandLineUtils;
 
-using tomware.Releasy;
+using tomware.Releasy.Changelog;
+using tomware.Releasy.Releasenotes;
 
 using static tomware.Releasy.ConsoleHelper;
 
@@ -26,13 +27,13 @@ app.Command("add-changelog", (command) =>
       : ReadInput("Enter your IssueId");
     var prefix = prefixOption.HasValue()
       ? prefixOption.Value() ?? throw new InvalidOperationException(nameof(prefixOption.Value))
-      : ReadInput("Enter prefix (i.e. added, changed, deprecated, removed, fixed, security)");
+      : ReadInput("Enter prefix (i.e. added, changed, deprecated, fixed, removed, security)");
     var tag = tagOption.HasValue()
       ? tagOption.Value() ?? throw new InvalidOperationException(nameof(tagOption.Value))
       : ReadInput("Enter tag");
     var message = messageOption.HasValue()
       ? messageOption.Value() ?? throw new InvalidOperationException(nameof(messageOption.Value))
-      : ReadInput("Enter message");
+      : ReadInput("Enter message (can contain simple inline markdown)");
 
     var creator = new ChangelogCreator(
       new ChangelogParam(
@@ -40,6 +41,47 @@ app.Command("add-changelog", (command) =>
         prefix,
         tag,
         message
+      ));
+    creator.Create();
+
+    return 0;
+  });
+});
+
+app.Command("add-releasenote", (command) =>
+{
+  command.Description = "Creates a new release note entry (i.e. releasy add-releasenote -i \"my-issue-id\" -p \"feature\" -t \"audit\" -m \"My super duper text\")";
+  var issueIdOption = command.Option("-i|--issue-id", "IssueId to link to your ticketing system", CommandOptionType.SingleValue);
+  var prefixOption = command.Option("-p|--prefix", "Prefix like breaking, deprecated, feature, fix, performance, removed, security, upgrade", CommandOptionType.SingleValue);
+  var tagOption = command.Option("-t|--tag", "Tag that specifies the changelog entry (i.e. audit). Helpful for grouping and such things.", CommandOptionType.SingleValue);
+  var messageOption = command.Option("-m|--message", "Release note text.", CommandOptionType.SingleValue);
+  var instructionsOption = command.Option("-ins|--instructions", "Optional instructions for the release note message.", CommandOptionType.SingleValue);
+  command.HelpOption();
+  command.OnExecute(() =>
+  {
+    var issueId = issueIdOption.HasValue()
+      ? issueIdOption.Value() ?? throw new InvalidOperationException(nameof(issueIdOption.Value))
+      : ReadInput("Enter your IssueId");
+    var prefix = prefixOption.HasValue()
+      ? prefixOption.Value() ?? throw new InvalidOperationException(nameof(prefixOption.Value))
+      : ReadInput("Enter prefix (i.e. breaking, deprecated, feature, fix, performance, removed, security, upgrade)");
+    var tag = tagOption.HasValue()
+      ? tagOption.Value() ?? throw new InvalidOperationException(nameof(tagOption.Value))
+      : ReadInput("Enter tag");
+    var message = messageOption.HasValue()
+      ? messageOption.Value() ?? throw new InvalidOperationException(nameof(messageOption.Value))
+      : ReadInput("Enter release note message (can contain simple inline markdown)");
+    var instructions = instructionsOption.HasValue()
+      ? [instructionsOption.Value() ?? throw new InvalidOperationException(nameof(instructionsOption.Value))]
+      : ReadMultilineInput("Enter intstructions for the release note message (can contain simple inline markdown)");
+
+    var creator = new ReleaseNoteCreator(
+      new ReleaseNoteParam(
+        issueId,
+        prefix,
+        tag,
+        message,
+        instructions
       ));
     creator.Create();
 

@@ -1,4 +1,4 @@
-namespace tomware.Releasy;
+namespace tomware.Releasy.Changelog;
 
 internal sealed record ChangelogUpdaterParam
 (
