@@ -19,7 +19,7 @@ Options:
 Commands:
   add-changelog        Creates a new changelog entry (i.e. releasy add-changelog -i "my-issue-id" -p "feature" -t "audit" -m "My super duper text")
   add-releasenote      Creates a new release note entry (i.e. releasy add-releasenote -i "my-issue-id" -p "feature" -t "audit" -m "My super duper text")
-  create-releasenotes  Creates releasenotes based on changelog entries for a dedicated release (i.e. releasy create-releasenotes -v "1.2.3" -p "some-permalink") 
+  create-releasenotes  Creates releasenotes based on release note entries for a dedicated release (i.e. releasy create-releasenotes -v "1.2.3" -p "some-permalink")
   update-changelog     Updates the CHANGELOG.md based on changelog entries for a dedicated release (i.e. releasy update-changelog -v "1.2.3" -p "some-permalink")
 
 Run 'releasy [command] -?|-h|--help' for more information about a command.

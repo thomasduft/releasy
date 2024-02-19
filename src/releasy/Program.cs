@@ -91,12 +91,12 @@ app.Command("add-releasenote", (command) =>
 
 app.Command("create-releasenotes", (command) =>
 {
-  command.Description = "Creates releasenotes based on changelog entries for a dedicated release (i.e. releasy create-releasenotes -v \"1.2.3\" -p \"some-permalink\")";
+  command.Description = "Creates releasenotes based on release note entries for a dedicated release (i.e. releasy create-releasenotes -v \"1.2.3\" -p \"some-permalink\")";
   var versionOption = command.Option("-v|--version", "Release version", CommandOptionType.SingleValue);
   var permaLinkOption = command.Option("-p|--permaLink", "Permalink template that points to the VCS issue id", CommandOptionType.SingleValue);
   var inputDirectoryOption = command.Option("-i|--inputDirectory", "Input directory to scan for release note items (defaults to '.')", CommandOptionType.SingleValue);
   var outputDirectoryOption = command.Option("-o|--outputDirectory", "Output directory where a release note will be stored (defaults to '.')", CommandOptionType.SingleValue);
-  var archiveDirectoryOption = command.Option("-a|--archiveDir", "Archive directory (if not set deletes changelogs)", CommandOptionType.SingleValue);
+  var archiveDirectoryOption = command.Option("-a|--archiveDir", "Archive directory (if not set deletes existing release note entries)", CommandOptionType.SingleValue);
   command.HelpOption();
   command.OnExecute(() =>
   {
@@ -105,7 +105,7 @@ app.Command("create-releasenotes", (command) =>
       : ReadInput("Enter release version");
     var permaLink = permaLinkOption.HasValue()
       ? permaLinkOption.Value() ?? throw new InvalidOperationException(nameof(permaLinkOption.Value))
-      : ReadInput("Enter the perma-link template that points to the VCS issue id");
+      : ReadInput("Enter the permalink template that points to the VCS issue id");
     var inputDirectory = inputDirectoryOption.HasValue()
       ? inputDirectoryOption.Value() ?? throw new InvalidOperationException(nameof(inputDirectoryOption.Value))
       : ".";
@@ -146,7 +146,7 @@ app.Command("update-changelog", (command) =>
       : ReadInput("Enter release version");
     var permaLink = permaLinkOption.HasValue()
       ? permaLinkOption.Value() ?? throw new InvalidOperationException(nameof(permaLinkOption.Value))
-      : ReadInput("Enter the perma-link template that points to the VCS issue id");
+      : ReadInput("Enter the permalink template that points to the VCS issue id");
     var inputDirectory = inputDirectoryOption.HasValue()
       ? inputDirectoryOption.Value() ?? throw new InvalidOperationException(nameof(inputDirectoryOption.Value))
       : ".";
