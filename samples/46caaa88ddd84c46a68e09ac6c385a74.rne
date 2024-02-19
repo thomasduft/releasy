@@ -1,0 +1,14 @@
+{
+  "Id": "46caaa88-ddd8-4c46-a68e-09ac6c385a74",
+  "IssueId": "1001",
+  "Prefix": "Feature",
+  "Tag": "audit",
+  "Message": "Added audit module",
+  "Instructions": [
+    "first\r\n",
+    "second step\r\n",
+    "third step\r\n"
+  ],
+  "CreatedAt": "2024-02-19T13:10:18.360161+01:00",
+  "CreatedBy": "Thomas Duft"
+}

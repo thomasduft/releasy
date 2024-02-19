@@ -3,5 +3,6 @@
 ## {{ prefix.Name }}
 {% for entry in prefix.Entries %}
 - {% if entry.IssueId != "" %}[#{{ entry.IssueId }}]({{ PermaLink}}{{ entry.IssueId }}): {% endif %}{{ entry.Message }}{% if entry.Tag != "" %} ({{ entry.Tag }}){% endif %}
-{%- endfor %}
+{% for instruction in entry.Instructions %}  - {{ instruction }}{%- endfor -%}
+{%- endfor -%}
 {% endfor -%}

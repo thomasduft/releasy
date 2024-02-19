@@ -1,0 +1,14 @@
+{
+  "Id": "65cf6edf-1b86-4aff-b4a1-0ea140b0c1f9",
+  "IssueId": "1002",
+  "Prefix": "Fix",
+  "Tag": "audit",
+  "Message": "Fixed wrong db schema",
+  "Instructions": [
+    "first run the db migrations\r\n",
+    "seed data\r\n",
+    "test your application\r\n"
+  ],
+  "CreatedAt": "2024-02-19T13:11:12.3772984+01:00",
+  "CreatedBy": "Thomas Duft"
+}

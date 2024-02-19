@@ -91,7 +91,7 @@ app.Command("add-releasenote", (command) =>
 
 app.Command("create-releasenotes", (command) =>
 {
-  command.Description = "Creates releasenotes based on changelog entries for a dedicated release (i.e. releasy create-releasenotes -v \"1.2.3\" -p \"some-perma-link\")";
+  command.Description = "Creates releasenotes based on changelog entries for a dedicated release (i.e. releasy create-releasenotes -v \"1.2.3\" -p \"some-permalink\")";
   var versionOption = command.Option("-v|--version", "Release version", CommandOptionType.SingleValue);
   var permaLinkOption = command.Option("-p|--permaLink", "Permalink template that points to the VCS issue id", CommandOptionType.SingleValue);
   var inputDirectoryOption = command.Option("-i|--inputDirectory", "Input directory to scan for release note items (defaults to '.')", CommandOptionType.SingleValue);
@@ -133,7 +133,7 @@ app.Command("create-releasenotes", (command) =>
 app.Command("update-changelog", (command) =>
 {
   // see keepachangelog.com (https://keepachangelog.com/en/1.0.0/#how)
-  command.Description = "Updates the CHANGELOG.md based on changelog entries for a dedicated release (i.e. releasy update-changelog -v \"1.2.3\" -p \"some-perma-link\")";
+  command.Description = "Updates the CHANGELOG.md based on changelog entries for a dedicated release (i.e. releasy update-changelog -v \"1.2.3\" -p \"some-permalink\")";
   var versionOption = command.Option("-v|--version", "Release version", CommandOptionType.SingleValue);
   var permaLinkOption = command.Option("-p|--permaLink", "Permalink template that points to the VCS issue id", CommandOptionType.SingleValue);
   var inputDirectoryOption = command.Option("-i|--inputDirectory", "Input directory to scan for release note items (defaults to '.')", CommandOptionType.SingleValue);
