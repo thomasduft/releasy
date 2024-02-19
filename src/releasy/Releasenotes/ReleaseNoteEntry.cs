@@ -9,7 +9,7 @@ internal sealed class ReleaseNoteEntry
   public string Message { get; set; } = string.Empty;
   public string[] Instructions { get; set; } = [];
   public DateTime CreatedAt { get; set; } = DateTime.Now;
-  public string CreatedBy { get; set; } = Environment.UserName;
+  public string CreatedBy { get; set; } = UserNameProvider.GetUserName();
 
   public static ReleaseNoteEntry Create(
     string issueId,

@@ -8,7 +8,7 @@ internal sealed class ChangelogEntry
   public string Tag { get; set; } = string.Empty;
   public string Message { get; set; } = string.Empty;
   public DateTime CreatedAt { get; set; } = DateTime.Now;
-  public string CreatedBy { get; set; } = Environment.UserName;
+  public string CreatedBy { get; set; } = UserNameProvider.GetUserName();
 
   public static ChangelogEntry Create(
     string issueId,
