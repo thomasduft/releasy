@@ -4,6 +4,18 @@
 
 releasy - a simple release notes tool.
 
+## What is the tool for?
+
+Writing and maintaining changlogs or release notes is not something a developer likes to spend time for nor is it fun to gather every information for a feature right before release time and write your changelogs or release notes late after you implemented a particular feature.
+
+`releasy` offers a pragmatic but opinionated approach to provide changelog or release note entries within a pull-request (PR), store them until release date and generate the artifacts as a part of your build process when your about to release a new version.
+
+The `releasy`-tool allows the following processes:
+- **Adding a changelog entry**: Provided by the developer within a PR.
+- **Adding a release note entry**: Provided by the developer within a PR.
+- **Creating release notes**: Created out of existing release note entries within the repository as a part of the build pipeline.
+- **Updating a `CHANGLOG.md`-file**: Created out of existing changelog entries within the repository as a part of the build pipeline.
+
 ## How to use
 
 ### List all arguments
