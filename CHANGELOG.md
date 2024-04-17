@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.11.0] - 2024-04-17
+
+### Added
+
+- Added command for adding a release note entry
+
 ## [0.10.0] - 2023-11-22
 
 ### Added

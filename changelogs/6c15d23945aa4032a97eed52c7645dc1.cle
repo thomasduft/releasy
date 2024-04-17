@@ -1,9 +1,0 @@
-{
-  "Id": "6c15d239-45aa-4032-a97e-ed52c7645dc1",
-  "IssueId": "",
-  "Prefix": "Added",
-  "Tag": "",
-  "Message": "Added command for adding a release note entry",
-  "CreatedAt": "2024-02-20T19:37:55.4762399+00:00",
-  "CreatedBy": "thomasduft"
-}
