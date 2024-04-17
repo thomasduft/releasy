@@ -6,9 +6,9 @@ using static Bullseye.Targets;
 using static SimpleExec.Command;
 
 const string Solution = "releasy.sln";
-IList<string> packableProjects = new List<string>{
+IList<string> packableProjects = [
   "releasy"
-};
+];
 
 var app = new CommandLineApplication
 {
