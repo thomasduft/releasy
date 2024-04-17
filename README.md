@@ -37,3 +37,33 @@ Commands:
 
 Run 'releasy [command] -?|-h|--help' for more information about a command.
 ```
+
+> Note: Both `add-*`-commands if not pre-populated with arguments or options will guide and ask you on the cli for the appropriate input (interactive).
+
+## Samples
+
+### Changelog
+
+For a brief glimpse of how the generated changelog looks like see the [CHANGELOG.md](CHANGELOG.md) for this repo.
+
+### Releasenotes
+
+A sample for a generated releasenote might look as the following:
+
+```markdown
+# Releasenotes v1.2.3
+
+## Feature
+
+- [#1001](https://github.com/thomasduft/releasy/issues/1001): Added audit module (audit)
+  - first
+  - second step
+  - third step
+
+## Fix
+
+- [#1002](https://github.com/thomasduft/releasy/issues/1002): Fixed wrong db schema (audit)
+  - first run the db migrations
+  - seed data
+  - test your application
+```
