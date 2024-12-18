@@ -1,0 +1,9 @@
+{
+  "Id": "2d250e35-d774-4002-9083-eed1835c1d1f",
+  "IssueId": "",
+  "Prefix": "Fixed",
+  "Tag": "",
+  "Message": "Fixed running pipelines with .NET 9.0 SDK support.",
+  "CreatedAt": "2024-12-18T14:11:07.838025+00:00",
+  "CreatedBy": "thomasduft"
+}
