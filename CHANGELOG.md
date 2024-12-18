@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.12.1] - 2024-12-18
+
+### Fixed
+
+- Fixed running pipelines with .NET 9.0 SDK support.
+
 ## [0.12.0] - 2024-12-18
 
 ### Added
