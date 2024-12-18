@@ -1,0 +1,9 @@
+{
+  "Id": "2bb8c982-ce79-49f5-8fb6-84b94668f47f",
+  "IssueId": "",
+  "Prefix": "Added",
+  "Tag": "",
+  "Message": "Added support for .NET 9.0",
+  "CreatedAt": "2024-12-18T14:04:35.8476256+00:00",
+  "CreatedBy": "thomasduft"
+}
