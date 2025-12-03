@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.13.0] - 2025-12-03
+
+### Added
+
+- Added support for .NET 10
+
 ## [0.12.1] - 2024-12-18
 
 ### Fixed
